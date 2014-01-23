@@ -1,4 +1,4 @@
-<%= form_for @cover, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @cover, :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label :title, :class => 'control-label' %>
     <div class="controls">
@@ -12,9 +12,17 @@
     </div>
   </div>
 
+  <div class="control-group">
+      <%= f.label :image, :class => 'control-label' %>
+      <div class="controls">
+        <%= image_tag(@cover.image_url) if @cover.image? %>
+        <%= f.file_field :image %>
+        <%= f.hidden_field :image_cache %>
+      </div>
+  </div>
+
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                covers_path, :class => 'btn' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), covers_path, :class => 'btn' %>
   </div>
 <% end %>

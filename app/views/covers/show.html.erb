@@ -8,6 +8,8 @@
   <dd><%= @cover.title %></dd>
   <dt><strong><%= model_class.human_attribute_name(:subtitle) %>:</strong></dt>
   <dd><%= @cover.subtitle %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
+  <dd><%= @cover.image_url(:thumb).to_s %></dd>
 </dl>
 
 <div class="form-actions">

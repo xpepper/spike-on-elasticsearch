@@ -69,6 +69,6 @@ class CoversController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cover_params
-      params.require(:cover).permit(:title, :subtitle)
+      params.require(:cover).permit(:title, :subtitle, :image)
     end
 end

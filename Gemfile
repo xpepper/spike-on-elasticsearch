@@ -4,6 +4,8 @@ gem 'rails', '4.0.2'
 
 gem 'pg'
 gem 'devise'
+gem 'carrierwave'
+gem "mini_magick"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
