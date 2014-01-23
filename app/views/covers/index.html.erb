@@ -5,7 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:image) %></th>
       <th><%= model_class.human_attribute_name(:title) %></th>
       <th><%= model_class.human_attribute_name(:subtitle) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -15,8 +15,8 @@
   <tbody>
     <% @covers.each do |cover| %>
       <tr>
-        <td><%= link_to cover.id, cover_path(cover) %></td>
-        <td><%= cover.title %></td>
+        <td><%= image_tag(cover.image_url(:thumb)) if cover.image? %></td>
+        <td><%= link_to cover.title, cover_path(cover) %></td>
         <td><%= cover.subtitle %></td>
         <td><%=l cover.created_at %></td>
         <td>

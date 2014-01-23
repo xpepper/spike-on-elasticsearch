@@ -15,7 +15,7 @@
   <div class="control-group">
       <%= f.label :image, :class => 'control-label' %>
       <div class="controls">
-        <%= image_tag(@cover.image_url) if @cover.image? %>
+        <%= image_tag(@cover.image_url(:thumb)) if @cover.image? %>
         <%= f.file_field :image %>
         <%= f.hidden_field :image_cache %>
       </div>
