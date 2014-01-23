@@ -1,7 +1,8 @@
 class Cover < ActiveRecord::Base
   include Flex::ModelIndexer
-  include Flex::Scopes
   flex.sync self
+
+  store_accessor :settings, :favorite_color, :time_zone
 
   mount_uploader :image, ImageUploader
 
