@@ -1,0 +1,15 @@
+<tr>
+  <td><%= image_tag(cover.image_url(:thumb)) if cover.image? %></td>
+  <td><%= link_to cover.title, cover_path(cover) %></td>
+  <td><%= cover.subtitle %></td>
+  <td><%=l cover.created_at %></td>
+  <td>
+    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                edit_cover_path(cover), :class => 'btn btn-mini' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                cover_path(cover),
+                :method => :delete,
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-mini btn-danger' %>
+  </td>
+</tr>

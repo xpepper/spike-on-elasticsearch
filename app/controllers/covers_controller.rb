@@ -30,9 +30,11 @@ class CoversController < ApplicationController
       if @cover.save
         format.html { redirect_to @cover, notice: 'Cover was successfully created.' }
         format.json { render action: 'show', status: :created, location: @cover }
+        format.js   {   }
       else
         format.html { render action: 'new' }
         format.json { render json: @cover.errors, status: :unprocessable_entity }
+        format.js   {  }
       end
     end
   end
