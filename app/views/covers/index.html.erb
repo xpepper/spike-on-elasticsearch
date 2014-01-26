@@ -2,26 +2,19 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:image) %></th>
-      <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:subtitle) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <div id="covers">
-      <%= render @covers %>
-    </div>      
-    <div class="clear"></div>      
-  </tbody>
-</table>  
-<%= link_to t('.new', :default => t("helpers.links.new")), new_cover_path, :class => 'btn btn-primary' %>
+<div id="covers">
+  <%= render @covers %>
+</div>      
+<div class="clear"></div>      
 
 <%= form_for Cover.new do |f| %>
-  <%= f.label :image, "Upload images" %>
+  <%= f.label :image, "Upload images", :class => 'btn btn-primary' %>
   <%= f.file_field :image, multiple: true, name: "cover[image]" %>
 <% end %>
+
+<script id="template-upload" type="text/x-tmpl">
+<div class="upload">
+  {%=o.name%}
+  <div class="progress"><div class="bar" style="width: 0%"></div></div>
+</div>
+</script>
